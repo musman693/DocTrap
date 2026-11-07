@@ -1,0 +1,59 @@
+seed: 42
+max_upload_mb: 20
+max_docx_uncompressed_mb: 100
+max_docx_entries: 2000
+pdf:
+  tiny_font_pt: 2.0
+  small_font_pt: 4.0
+  min_contrast: 1.5
+  off_page_tolerance_pt: 2.0
+  covered_ratio: 0.6
+  overlap_ratio: 0.5
+docx:
+  tiny_half_points: 4
+  min_contrast: 1.5
+unicode:
+  zero_width_medium_count: 3
+  zero_width_high_count: 10
+rules:
+  file: rules_patterns.yaml
+ml:
+  backend: tfidf
+  model_path: models/injection_clf.joblib
+  threshold: 0.5
+  chunk_max_words: 60
+context:
+  quote_factor: 0.4
+  discussion_factor: 0.4
+  security_doc_factor: 0.5
+  hidden_boost: 1.5
+scoring:
+  weights:
+    hidden_content: 0.30
+    unicode: 0.15
+    rules: 0.25
+    ml: 0.20
+    location: 0.10
+  boosts:
+    hidden_instruction: 20
+    unicode_tag_instruction: 15
+    critical_floor: 70
+  levels:
+    low: 0
+    medium: 25
+    high: 50
+    critical: 75
+workflow:
+  quarantine_threshold: 25
+  auto_reject_threshold: null
+sanitizer:
+  remove_visible_injections: false
+  docx_tracked_changes: accept
+rag:
+  chunk_words: 200
+  overlap_words: 30
+  top_k: 4
+lab:
+  seed: 42
+  docs_per_attack: 10
+  benign_docs: 40

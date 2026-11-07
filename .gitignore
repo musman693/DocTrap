@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+frontend/node_modules/
+doctrap_ui/dist/
+data/
+.env
+.env.*
+!.env.example

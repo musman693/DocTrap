@@ -1,0 +1,19 @@
+patterns:
+  ignore:
+    - ignore previous instructions
+    - ignore the above
+    - ignore system prompt
+  override:
+    - override the developer instructions
+    - bypass safety
+    - ignore prior instructions
+    - reveal system prompt
+  exfil:
+    - send all secrets
+    - leak the password
+    - share this to the attacker
+  secret:
+    - canary
+    - pineapple
+    - secret key
+    - token
